@@ -1,8 +1,12 @@
 package com.dataaccess;
 
-import lombok.Data;
+import lombok.ToString;
+import lombok.Value;
 
-@Data
+
+
+@Value
+@ToString()
 public class User {
 
     private String id;
@@ -13,10 +17,13 @@ public class User {
 
 
     public static void main(String[] args) {
-        User user = new User();
-        user.setAge(20);
-        user.setName("feng");
-        System.out.println(user.toString());
+
+
+        System.out.println(new User("a","b",12));
+    }
+
+    void f(){
+        System.out.println("f()");
     }
 
 }

@@ -12,6 +12,7 @@ buildscript {
 	}
 }
 
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -19,7 +20,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 10
 
 repositories {
 	mavenCentral()
@@ -60,12 +61,20 @@ dependencies {
 
 	//注意是compilyOnly 不是 provided
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
-	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
+	//1.16不支持java 10
+    //compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
+
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
+
 
 	//Poi
 	compile group: 'org.apache.poi', name: 'poi', version: '3.15'
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.15'
-	
+
+	// bean转xml  https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream
+	compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.10'
+
 
 
 
